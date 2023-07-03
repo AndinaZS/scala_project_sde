@@ -1,4 +1,3 @@
-
 object main extends App {
   val NUMBER_TIKTOK_BLOGGERS: Int = 5
   val NUMBER_INSTA_BLOGGERS: Int = 5
@@ -7,7 +6,7 @@ object main extends App {
 
 
   ServiceFunc.fillDB()
-  println(ServiceFunc.getById("i1"))
+  val a = ServiceFunc.getById("i5")
 
 
 }
