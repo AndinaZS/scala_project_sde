@@ -1,6 +1,6 @@
 import scala.collection.mutable
 object DataBaseImitation {
-  val dataStorage: mutable.Map[String, Blogger] = mutable.Map()
+  private val dataStorage: mutable.Map[String, Blogger] = mutable.Map()
   def putToBD(newAccount: Blogger): Unit = {
     dataStorage += (newAccount.id -> newAccount)
   }
@@ -10,7 +10,7 @@ object DataBaseImitation {
 }
 
 object Cash {
-  val cash : mutable.Map[String, (Long, Blogger)] = mutable.Map()
+  private val cash : mutable.Map[String, (Long, Blogger)] = mutable.Map()
 
   def putToCash(time: Long, blogger: Blogger): Unit = {
     cash += (blogger.id -> (time, blogger))
@@ -18,4 +18,15 @@ object Cash {
   def getFromCash(id: String): (Long, Blogger) = cash.get(id).orNull
 
   def getAllCash(): mutable.Map[String, (Long, Blogger)] = cash
+
+  def postToInstagram(): Unit = {
+    if (cash.nonEmpty) {
+      val filteredCash = cash.filter((k) => k._2._2.allowedSocialNetwork.contains("instagram"))
+      for ((i, _) <- filteredCash){
+        ServiceFunc.getById(i).post("I post message", "instagram")
+      }
+
+    }
+
+  }
 }

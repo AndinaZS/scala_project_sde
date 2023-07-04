@@ -10,6 +10,7 @@ abstract protected class Blogger extends Post {
       println(s"$id send '$message' to $socialNetwork")
     case _ => println(s"not allowed")
   }
+
 }
 
 case class InstaBlogger(id: String) extends Blogger  {

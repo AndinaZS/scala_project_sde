@@ -6,7 +6,6 @@ object main extends App {
 
 
   ServiceFunc.fillDB()
-  println(DataBaseImitation.dataStorage.size)
   ServiceFunc.fillCash()
-  println(Cash.cash.size)
+  Cash.postToInstagram()
 }

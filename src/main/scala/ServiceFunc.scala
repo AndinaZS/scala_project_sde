@@ -24,11 +24,12 @@ object ServiceFunc {
 
   }
 
-  def getById(id: String) = {
-    val cashedAcc = Cash.cash.get(id).orNull
+  def getById(id: String): (Blogger) = {
+    val cashedAcc = Cash.getFromCash(id)
     if (cashedAcc != null && (System.currentTimeMillis() - cashedAcc._1) < 10 * 60 * 1000) cashedAcc._2
     else if (DataBaseImitation.getFromDB(id) != null)
       Cash.putToCash(System.currentTimeMillis(), DataBaseImitation.getFromDB(id))
+      Cash.getFromCash(id)._2
   }
 
 }
