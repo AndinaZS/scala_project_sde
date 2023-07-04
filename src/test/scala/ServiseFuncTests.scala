@@ -39,11 +39,14 @@ class ServiseFuncSuitTests extends AnyFunSuite {
   }
 
   test("fillCash test") {
-    //    ServiceFunc.createAccounts("mix", 5)
-    //    assert(DataBaseImitation.getAll().size == 5)
-    //
-    //    assertTypeError("ServiceFunc.createAccounts(\"mix\", 5.3)")
-    //    assertTypeError("ServiceFunc.createAccounts(45, 4)")
+    ServiceFunc.createAccounts("instagram", 5)
+    ServiceFunc.createAccounts("tiktok", 5)
+    ServiceFunc.createAccounts("mix", 5)
+
+    ServiceFunc.fillCash()
+    assert(Cash.getAllCash().size == 15 / 3)
+
+    assertDoesNotCompile("ServiceFunc.fillCash(5)")
 
   }
 }

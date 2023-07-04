@@ -4,7 +4,7 @@ import scala.util.Random
 object ServiceFunc {
 
   def fillCash(): Unit = {
-    while (Cash.getAllCash().size < DataBaseImitation.getAll().size * 0.33) {
+    while (Cash.getAllCash().size < DataBaseImitation.getAll().size / 3) {
       val listID: List[String] = DataBaseImitation.getAll().keys.toList
       getById(listID(Random.nextInt(listID.size)))
     }
