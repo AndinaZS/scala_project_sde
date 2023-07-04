@@ -1,4 +1,5 @@
 import main._
+import scala.util.Random
 
 object ServiceFunc {
   def fillDB(): Unit = {
@@ -9,7 +10,10 @@ object ServiceFunc {
   }
 
   def fillCash(): Unit = {
-
+    while (Cash.getAllCash().size < DataBaseImitation.getAll().size * 0.33) {
+      val listID: List[String] = DataBaseImitation.getAll().keys.toList
+      getById(listID(Random.nextInt(listID.size)))
+    }
   }
   def createAccounts(typeAccount: String, num: Int): Unit = {
     for (i <- 1 to num) typeAccount match {
