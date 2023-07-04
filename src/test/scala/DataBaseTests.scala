@@ -1,6 +1,6 @@
 import org.scalatest.funsuite.AnyFunSuite
 
-class DataBaseSuite extends AnyFunSuite {
+class DataBaseSuiteTests extends AnyFunSuite {
   test("DB interface") {
     val blogger = TikTokBlogger("t25")
     DataBaseImitation.putToBD(blogger)

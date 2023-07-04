@@ -1,3 +1,4 @@
+import main._
 
 trait Post extends {
   def post(message: String, socialNetwork: String): Unit

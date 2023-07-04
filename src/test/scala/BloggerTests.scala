@@ -1,6 +1,6 @@
 import org.scalatest.funsuite.AnyFunSuite
 
-class BloggerSuite extends AnyFunSuite {
+class BloggerSuiteTests extends AnyFunSuite {
 
   test("Create InstaBlogger") {
     assert(InstaBlogger("i15").isInstanceOf[InstaBlogger])
