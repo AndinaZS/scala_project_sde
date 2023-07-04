@@ -1,8 +1,13 @@
 import scala.collection.mutable
 object DataBaseImitation {
-  var dataStorage: Map[String, _ <: Blogger] = Map()
+  var dataStorage: mutable.Map[String, Blogger] = mutable.Map()
 
-  def dataStorage[T <: Blogger](newAccount: T): Unit = {
+  def dataStorage(newAccount: Blogger): Unit = {
     dataStorage += (newAccount.id -> newAccount)
   }
+}
+
+object Cash {
+  var cash: mutable.Map[String, (Long, Blogger)] = mutable.Map()
+
 }
