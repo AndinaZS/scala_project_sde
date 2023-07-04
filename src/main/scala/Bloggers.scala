@@ -1,4 +1,5 @@
-trait Post{
+
+trait Post extends {
   def post(message: String, socialNetwork: String): Unit
 }
 abstract protected class Blogger extends Post {
