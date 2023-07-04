@@ -5,7 +5,7 @@ object DataBaseImitation {
     dataStorage += (newAccount.id -> newAccount)
   }
   def getFromDB(id: String): Blogger = dataStorage.get(id).orNull
-  def getAll(): mutable.Map[String, Blogger] = dataStorage
+  def getAll: mutable.Map[String, Blogger] = dataStorage
 
 }
 
@@ -17,7 +17,7 @@ object Cash {
   }
   def getFromCash(id: String): (Long, Blogger) = cash.get(id).orNull
 
-  def getAllCash(): mutable.Map[String, (Long, Blogger)] = cash
+  def getAllCash: mutable.Map[String, (Long, Blogger)] = cash
 
   def postToInstagram(): Unit = {
     if (cash.nonEmpty) {
