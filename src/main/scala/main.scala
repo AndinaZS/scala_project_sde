@@ -1,3 +1,5 @@
+import scala.collection.mutable
+
 object main extends App {
   //Основной класс. Определены константы для количество учётных записей по типу.
   //Вызваны методы заполнения базы данных соответствующим количеством учетых записей и заполнения кэша.
@@ -14,4 +16,6 @@ object main extends App {
   ServiceFunc.createAccounts("mix", NUMBER_MIXED_BLOGGERS)
   ServiceFunc.fillCash()
   Cash.postToInstagram()
+
+
 }

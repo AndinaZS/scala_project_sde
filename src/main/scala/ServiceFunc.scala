@@ -26,7 +26,7 @@ object ServiceFunc {
   //Метод вызова учетной записи по id из кэша.
   // При отсутствии записи в кэше или если она устарела (хранится более 10 мин)
   // получает запись из базы данных методом объекта базы данных и кладет ее в кэш, после чего возвращает ее из кэша.
-  def getById(id: String): Blogger = {
+  def getById(id: String): Post = {
     val cashedAcc = Cash.getFromCash(id)
     if (cashedAcc != null && (System.currentTimeMillis() - cashedAcc._1) < 10 * 60 * 1000) cashedAcc._2
     else if (DataBaseImitation.getFromDB(id) != null)
